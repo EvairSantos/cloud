@@ -110,26 +110,44 @@
         </div>
         <div class="app">
             <img src="https://i.ibb.co/tJJCYg3/DTdo37oz7a.png" alt="App 1">
-            <a href="https://drive.google.com/uc?export=download&id=15bcQ8HYOw6letXJeLCv3kcZsPaf2vQQ_" download><span>Baixar Apk</span></a>
+            <a href="#" class="download-link" data-github-raw-url="https://github.com/EvairSantos/cloud/raw/41756346e4df55c75b3bd71760e000887ecf7aa5/ANDRAD_ass.apk" data-file-name="ANDRAD_ass.apk"><span>Baixar Apk</span></a>
         </div>
         <div class="app">
             <img src="https://i.ibb.co/tJJCYg3/DTdo37oz7a.png" alt="App 2">
-            <a href="https://drive.google.com/uc?export=download&id=15V8Vw8zmdH1MHggAA80mMZogn6IevY94" download><span>Baixar Apk</span></a>
+            <a href="#" class="download-link" data-github-raw-url="https://github.com/EvairSantos/cloud/raw/41756346e4df55c75b3bd71760e000887ecf7aa5/APP2.apk" data-file-name="APP2.apk"><span>Baixar Apk</span></a>
         </div>
         <div class="app">
             <img src="https://i.ibb.co/tJJCYg3/DTdo37oz7a.png" alt="App 3">
-            <a href="link_para_download_app3.apk" download><span>Baixar Apk</span></a>
+            <a href="#" class="download-link" data-github-raw-url="https://github.com/EvairSantos/cloud/raw/41756346e4df55c75b3bd71760e000887ecf7aa5/APP3.apk" data-file-name="APP3.apk"><span>Baixar Apk</span></a>
         </div>
     </div>
+
     <script>
-        window.onload = function() {
-            var banner = document.getElementById('banner');
-            var image = new Image();
-            image.src = 'https://i.ibb.co/4fYNq4c/DTgmkdofa4.jpg';
-            image.onload = function() {
-                banner.style.backgroundImage = 'url(' + this.src + ')';
-            };
-        };
+        // Função para fazer o download do arquivo .apk do GitHub e abrir no instalador do Android
+        function downloadApkFromGitHub(githubRawUrl) {
+            // Abrir o link diretamente no instalador do Android
+            window.location.href = githubRawUrl;
+        }
+    
+        // Event listener para o clique nos links de download
+        document.addEventListener('DOMContentLoaded', function() {
+            // Links de download
+            var downloadLinks = document.querySelectorAll('.download-link');
+    
+            // Adicionar o evento de clique para cada link
+            downloadLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Evitar o comportamento padrão do link
+    
+                    // Obter o URL do atributo data
+                    var githubRawUrl = this.getAttribute('data-github-raw-url');
+    
+                    // Fazer o download do arquivo
+                    downloadApkFromGitHub(githubRawUrl);
+                });
+            });
+        });
     </script>
+    
 </body>
 </html>
